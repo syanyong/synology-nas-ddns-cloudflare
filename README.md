@@ -11,8 +11,22 @@ This Python script integrates with Synology DSM to dynamically update DNS record
 
 ## Installation
 
+1. **SSH into Synology NAS**:
+   - Open a terminal on your computer and connect to your Synology NAS via SSH:
+   - Make the script executable:
+     ```bash
+     ssh admin@<NAS_IP>
+     ```
+
 1. **Copy the Script to Synology NAS**:
-   - Save `cloudflare_ddns.py` to `/usr/syno/bin/ddns/`.
+   - Download the Script:
+     ```bash
+     wget https://raw.githubusercontent.com/syanyong/synology-nas-ddns-cloudflare/refs/heads/main/cloudflare_ddns.py .
+     ```
+   - Copy:
+     ```bash
+     cp cloudflare_ddns.py /usr/syno/bin/ddns
+     ```
    - Make the script executable:
      ```bash
      sudo chmod +x /usr/syno/bin/ddns/cloudflare_ddns.py
@@ -27,7 +41,7 @@ This Python script integrates with Synology DSM to dynamically update DNS record
      ```
 
 
-3. **Add DDNS in DSM**:
+3. **Add DDNS in DSM (UI)**:
    - Go to **Control Panel > External Access > DDNS**.
    - Add a new entry:
      - **Service Provider**: `Cloudflare`
@@ -37,8 +51,11 @@ This Python script integrates with Synology DSM to dynamically update DNS record
 
 ## Compatibility
 
-- Tested with **DSM 7.2.2**.
-- Expected to work with other DSM 7.x versions.
+- Tested and verified on:
+  - Synology **DSM 7.2.2**
+  - Cloudflare API v4
+- Expected to work on all DSM 7.x versions.
+
 
 ## Usage
 
@@ -52,7 +69,11 @@ This Python script integrates with Synology DSM to dynamically update DNS record
    You can test the script manually:
    ```bash
    /usr/syno/bin/ddns/cloudflare_ddns.py <ZONE_ID> <API_TOKEN> <RECORD_ID> <IP>
+   ```
 
+## Author
+This project was created and maintained by Sarucha Yanyong.
+GitHub: @syanyong
 
 
    
